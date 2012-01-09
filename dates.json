@@ -1,0 +1,38 @@
+{
+  "importantDates" : 
+  [
+    {
+      "startDate"   : "01/09/2012",
+      "endDate"     : "01/09/2012",
+      "description" : "This is the first week of school for non-block week students",
+      "tags" : ["current"],
+      "link" : 
+      {
+        "name"  : "Learn More",
+        "url"   : "http://en.wikipedia.org/wiki/JSON"    
+      }
+    },
+    {
+      "startDate"   : "08/01/2012",
+      "endDate"     : "08/02/2012",
+      "description" : "Benny's 27th Birthday", 
+      "tags" : ["benny", "party"],
+      "link" : 
+      {
+        "name"  : "Learn More",
+        "url"   : "http://helloimbenny.com"    
+      }
+    },
+    {
+      "startDate"   : "12/01/2012",
+      "endDate"     : "12/31/2012",
+      "description" : "End of Days Party!",
+      "tags" : ["party"],
+      "link" : 
+      {
+        "name"  : "Learn More",
+        "url"   : "http://party.com"    
+      }
+    }
+  ]
+}
