@@ -23,6 +23,7 @@
 
   $.fn.dates = function(config){
       $.dates.config = $.extend({}, $.dates.defaults, config);
+      $.dates.today = new Date();
 
       getDates();
 
@@ -40,7 +41,13 @@
   var getDates = function() {
     $.getJSON($.dates.config.jsonURL, function(data) {
       $(data["importantDates"]).each(function(){
-        $.dates.data[$.dates.data.length] = this;
+        var tempDate = new Date(this["endDate"]);
+        tempDate.setHours(23);
+        tempDate.setMinutes(59);
+
+        if (tempDate >= $.dates.today) {
+          $.dates.data[$.dates.data.length] = this;
+        }
       });
     });
   };
