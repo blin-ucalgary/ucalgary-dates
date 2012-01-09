@@ -14,7 +14,7 @@
 
   $.dates = {
     defaults : {
-      // "headerClass"         : "collapse-header",
+      "jsonURL"         : "dates.json",
     }
   };
 
@@ -38,7 +38,7 @@
   }
 
   var getDates = function() {
-    $.getJSON('dates.json', function(data) {
+    $.getJSON($.dates.config.jsonURL, function(data) {
       $(data["importantDates"]).each(function(){
         $.dates.data[$.dates.data.length] = this;
       });
