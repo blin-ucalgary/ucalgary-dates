@@ -14,7 +14,8 @@
 
   $.dates = {
     defaults : {
-      "jsonURL"         : "dates.json",
+      "jsonURL" : "dates.json",
+      "tags"    : ["benny"],
     }
   };
 
@@ -23,10 +24,11 @@
 
   $.fn.dates = function(config){
       $.dates.config = $.extend({}, $.dates.defaults, config);
-      $.dates.today = new Date();
+      $.dates.yesterday = new Date();
+      $.dates.yesterday.setDate($.dates.yesterday.getDate() - 1)
+      $.dates.config.tags = cleanTags($.dates.config.tags);
 
-      getDates();
-
+      getDatesFromFeed();
       return this.each(function(){
         init(this);
       });
@@ -34,19 +36,42 @@
 
   // Private Functions
 
-  function padDate(date) {
+  var padDate = function(date) {
     return (date < 10) ?  "0" + date : date;
+  };
+
+  var cleanTags = function(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      arr[i] = arr[i].toLowerCase();
+    }
+
+    return arr;
   }
 
-  var getDates = function() {
+  var containsTags = function(tags) {
+    var found = false;
+    tags = cleanTags(tags);
+
+    for (var i = 0; i < $.dates.config.tags.length; i++) {
+      for (var j = 0; j < tags.length; j++) {
+        if ($.dates.config.tags[i] == tags[j]) {
+          found = true;
+          break;
+        }
+      }
+    }
+
+    return found;
+  };
+
+  var getDatesFromFeed = function() {
     $.getJSON($.dates.config.jsonURL, function(data) {
       $(data["importantDates"]).each(function(){
         var tempDate = new Date(this["endDate"]);
-        tempDate.setHours(23);
-        tempDate.setMinutes(59);
-
-        if (tempDate >= $.dates.today) {
-          $.dates.data[$.dates.data.length] = this;
+        if (tempDate > $.dates.yesterday) {
+          if (containsTags(this["tags"])) {
+            $.dates.data[$.dates.data.length] = this;
+          }
         }
       });
     });
