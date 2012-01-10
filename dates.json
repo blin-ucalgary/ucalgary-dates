@@ -5,7 +5,7 @@
       "startDate"   : "02/08/2012",
       "endDate"     : "02/08/2012",
       "description" : "This is the first week of school for non-block week students",
-      "tags" : ["current"],
+      "tags" : ["current", "important"],
       "link" :
       {
         "name"  : "Learn More",

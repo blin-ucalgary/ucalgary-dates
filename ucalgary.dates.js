@@ -15,7 +15,7 @@
   $.dates = {
     defaults : {
       "jsonURL" : "dates.json",
-      "tags"    : ["benny"],
+      "tags"    : [],
     }
   };
 
@@ -34,7 +34,9 @@
       });
    }
 
+  // ===========================================================================
   // Private Functions
+  // ===========================================================================
 
   var padDate = function(date) {
     return (date < 10) ?  "0" + date : date;
@@ -52,11 +54,16 @@
     var found = false;
     tags = cleanTags(tags);
 
-    for (var i = 0; i < $.dates.config.tags.length; i++) {
-      for (var j = 0; j < tags.length; j++) {
-        if ($.dates.config.tags[i] == tags[j]) {
-          found = true;
-          break;
+    // If empty, than assume they want everything
+    if (!$.dates.config.tags.length) {
+      return true;
+    } else {
+      for (var i = 0; i < $.dates.config.tags.length; i++) {
+        for (var j = 0; j < tags.length; j++) {
+          if ($.dates.config.tags[i] == tags[j]) {
+            found = true;
+            break;
+          }
         }
       }
     }
