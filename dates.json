@@ -33,6 +33,50 @@
         "name"  : "Learn More",
         "url"   : "http://party.com"
       }
+    },
+    {
+      "startDate"   : "01/18/2012",
+      "endDate"     : "01/18/2012",
+      "description" : "This is the second week of school for non-block week students",
+      "tags" : ["current", "important"],
+      "link" :
+      {
+        "name"  : "Learn More",
+        "url"   : "http://en.wikipedia.org/wiki/JSON"
+      }
+    },
+    {
+      "startDate"   : "07/01/2012",
+      "endDate"     : "07/02/2012",
+      "description" : "Canada Day",
+      "tags" : ["Party"],
+      "link" :
+      {
+        "name"  : "Learn More",
+        "url"   : "http://helloimbenny.com"
+      }
+    },
+    {
+      "startDate"   : "12/23/2012",
+      "endDate"     : "1/06/2013",
+      "description" : "Holiday Break",
+      "tags" : ["important"],
+      "link" :
+      {
+        "name"  : "Learn More",
+        "url"   : "http://party.com"
+      }
+    },
+        {
+      "startDate"   : "12/31/2012",
+      "endDate"     : "12/31/2012",
+      "description" : "New Year's Eve",
+      "tags" : ["Holiday", "party"],
+      "link" :
+      {
+        "name"  : "Learn More",
+        "url"   : "http://party.com"
+      }
     }
   ]
 }

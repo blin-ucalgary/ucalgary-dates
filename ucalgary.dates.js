@@ -14,16 +14,18 @@
 
   $.dates = {
     defaults : {
-      "jsonURL" : "dates.json",
-      "tags"    : [],
+      "jsonURL"  : "dates.json",
+      "tags"     : [],
+      "datesCap" : 4,
     }
   };
-
-  $.dates.data = []
-
+  
+  $.dates.data = [];
 
   $.fn.dates = function(config){
       $.dates.config = $.extend({}, $.dates.defaults, config);
+
+      // Move to initialization
       $.dates.yesterday = new Date();
       $.dates.yesterday.setDate($.dates.yesterday.getDate() - 1)
       $.dates.config.tags = cleanTags($.dates.config.tags);
@@ -38,10 +40,6 @@
   // Private Functions
   // ===========================================================================
 
-  var padDate = function(date) {
-    return (date < 10) ?  "0" + date : date;
-  };
-
   var cleanTags = function(arr) {
     for (var i = 0; i < arr.length; i++) {
       arr[i] = arr[i].toLowerCase();
@@ -54,7 +52,7 @@
     var found = false;
     tags = cleanTags(tags);
 
-    // If empty, than assume they want everything
+    // If empty, assume they want everything
     if (!$.dates.config.tags.length) {
       return true;
     } else {
@@ -73,11 +71,17 @@
 
   var getDatesFromFeed = function() {
     $.getJSON($.dates.config.jsonURL, function(data) {
+
       $(data["importantDates"]).each(function(){
+
         var tempDate = new Date(this["endDate"]);
         if (tempDate > $.dates.yesterday) {
           if (containsTags(this["tags"])) {
-            $.dates.data[$.dates.data.length] = this;
+            if ($.dates.data.length < $.dates.config.datesCap) {
+              $.dates.data[$.dates.data.length] = this;
+            } else {
+              return false;
+            }
           }
         }
       });
