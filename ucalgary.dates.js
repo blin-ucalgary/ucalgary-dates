@@ -24,17 +24,13 @@
 
   $.fn.dates = function(config){
       $.dates.config = $.extend({}, $.dates.defaults, config);
-
-      // Move to initialization
-      $.dates.yesterday = new Date();
-      $.dates.yesterday.setDate($.dates.yesterday.getDate() - 1)
-      $.dates.config.tags = cleanTags($.dates.config.tags);
-
+      init(this);
       getDatesFromFeed();
+  
       return this.each(function(){
-        init(this);
+        console.log($.dates.data);
       });
-   }
+  }
 
   // ===========================================================================
   // Private Functions
@@ -89,7 +85,9 @@
   };
 
   var init = function(el) {
-    console.log($.dates.data);
+    $.dates.yesterday = new Date();
+    $.dates.yesterday.setDate($.dates.yesterday.getDate() - 1)
+    $.dates.config.tags = cleanTags($.dates.config.tags);
   };
 
 
