@@ -17,18 +17,26 @@
       "jsonURL"  : "dates.json",
       "tags"     : [],
       "datesCap" : 4,
-    }
+      "ulClass"  : "dates",
+      "liClass"  : "dateBlock",
+      "spanClass": "date"
+    },
+    data : [],
+    days : [
+      "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ],
+    months : [
+      "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+    ],
   };
   
-  $.dates.data = [];
 
   $.fn.dates = function(config){
       $.dates.config = $.extend({}, $.dates.defaults, config);
       init(this);
-      getDatesFromFeed();
-  
+      parseDates();
       return this.each(function(){
-        console.log($.dates.data);
+        console.log($.dates);
       });
   }
 
@@ -51,13 +59,13 @@
     // If empty, assume they want everything
     if (!$.dates.config.tags.length) {
       return true;
-    } else {
-      for (var i = 0; i < $.dates.config.tags.length; i++) {
-        for (var j = 0; j < tags.length; j++) {
-          if ($.dates.config.tags[i] == tags[j]) {
-            found = true;
-            break;
-          }
+    }
+
+    for (var i = 0; i < $.dates.config.tags.length; i++) {
+      for (var j = 0; j < tags.length; j++) {
+        if ($.dates.config.tags[i] == tags[j]) {
+          found = true;
+          break;
         }
       }
     }
@@ -65,24 +73,9 @@
     return found;
   };
 
-  var getDatesFromFeed = function() {
-    $.getJSON($.dates.config.jsonURL, function(data) {
-
-      $(data["importantDates"]).each(function(){
-
-        var tempDate = new Date(this["endDate"]);
-        if (tempDate > $.dates.yesterday) {
-          if (containsTags(this["tags"])) {
-            if ($.dates.data.length < $.dates.config.datesCap) {
-              $.dates.data[$.dates.data.length] = this;
-            } else {
-              return false;
-            }
-          }
-        }
-      });
-    });
-  };
+  var formatDate = function (rawDate) {
+    return  ($.dates.days[rawDate.getDay()] + ", " + $.dates.months[rawDate.getMonth()] + " " + rawDate.getDate());
+  }
 
   var init = function(el) {
     $.dates.yesterday = new Date();
@@ -90,5 +83,29 @@
     $.dates.config.tags = cleanTags($.dates.config.tags);
   };
 
+  // parse feed, validate dates, return html string of 
+  var parseDates = function() {
+    $.getJSON($.dates.config.jsonURL, function(data) {
+      var ul = $("<ul>").addClass($.dates.config.ulClass);
+      
+      $(data["importantDates"]).each(function(){
+        var startDate = new Date(this["startDate"]);
+        var endDate = new Date(this["endDate"]);
+
+        if (endDate > $.dates.yesterday) {
+          if (containsTags(this["tags"])) {
+            if ($.dates.data.length < $.dates.config.datesCap) {
+              $.dates.data.push(this);
+              var li = $("<li>").addClass($.dates.config.liClass).text(this["description"]);
+              var span = $("<span>").addClass($.dates.config.spanClass);
+              span.text( (startDate.getTime() == endDate.getTime()) ? formatDate(startDate) : formatDate(startDate) + " - " + formatDate(endDate));
+              ul.append(li.prepend(span));
+            } 
+          }
+        }
+      });
+      $("#important-dates").append(ul);
+    });
+  };
 
 })(jQuery);
