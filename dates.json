@@ -2,8 +2,8 @@
   "importantDates" : 
   [
     {
-      "startDate"   : "02/08/2012",
-      "endDate"     : "02/08/2012",
+      "startDate"   : "02/08/2002",
+      "endDate"     : "02/08/2002",
       "description" : "This is the first week of school for non-block week students",
       "tags" : ["current", "important"],
       "link" :
@@ -14,7 +14,7 @@
     },
     {
       "startDate"   : "08/01/2012",
-      "endDate"     : "08/02/2012",
+      "endDate"     : "08/01/2012",
       "description" : "Benny's 27th Birthday",
       "tags" : ["benny", "Party"],
       "link" :
@@ -47,7 +47,7 @@
     },
     {
       "startDate"   : "07/01/2012",
-      "endDate"     : "07/02/2012",
+      "endDate"     : "07/01/2012",
       "description" : "Canada Day",
       "tags" : ["Party"],
       "link" :
