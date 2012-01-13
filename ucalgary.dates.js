@@ -16,7 +16,7 @@
     defaults : {
       "jsonURL"  : "dates.json",
       "tags"     : [],
-      "datesCap" : 4,
+      "datesCap" : 7,
       "ulClass"  : "dates",
       "liClass"  : "dateBlock",
       "spanClass": "date"
@@ -36,7 +36,7 @@
       init(this);
       parseDates();
       return this.each(function(){
-        console.log($.dates);
+        // console.log($.dates);
       });
   }
 
@@ -54,16 +54,15 @@
 
   var containsTags = function(tags) {
     var found = false;
-    tags = cleanTags(tags);
 
     // If empty, assume they want everything
-    if (!$.dates.config.tags.length) {
+    if (!$.dates.config.tags.length || !tags) {
       return true;
     }
 
     for (var i = 0; i < $.dates.config.tags.length; i++) {
       for (var j = 0; j < tags.length; j++) {
-        if ($.dates.config.tags[i] == tags[j]) {
+        if ($.dates.config.tags[i] == tags[j].name) {
           found = true;
           break;
         }
@@ -88,9 +87,9 @@
     $.getJSON($.dates.config.jsonURL, function(data) {
       var ul = $("<ul>").addClass($.dates.config.ulClass);
       
-      $(data["importantDates"]).each(function(){
-        var startDate = new Date(this["startDate"]);
-        var endDate = new Date(this["endDate"]);
+      $(data).each(function(){
+        var startDate = new Date(this["start_date"]);
+        var endDate = new Date(this["end_date"]);
 
         if (endDate > $.dates.yesterday) {
           if (containsTags(this["tags"])) {
