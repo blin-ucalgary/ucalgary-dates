@@ -1,82 +1,66 @@
-{
-  "importantDates" : 
-  [
-    {
-      "startDate"   : "02/08/2002",
-      "endDate"     : "02/08/2002",
-      "description" : "This is the first week of school for non-block week students",
-      "tags" : ["current", "important"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://en.wikipedia.org/wiki/JSON"
-      }
-    },
-    {
-      "startDate"   : "08/01/2012",
-      "endDate"     : "08/01/2012",
-      "description" : "Benny's 27th Birthday",
-      "tags" : ["benny", "Party"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://helloimbenny.com"
-      }
-    },
-    {
-      "startDate"   : "12/01/2012",
-      "endDate"     : "12/31/2012",
-      "description" : "End of Days Party!",
-      "tags" : ["party"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://party.com"
-      }
-    },
-    {
-      "startDate"   : "01/18/2012",
-      "endDate"     : "01/18/2012",
-      "description" : "This is the second week of school for non-block week students",
-      "tags" : ["current", "important"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://en.wikipedia.org/wiki/JSON"
-      }
-    },
-    {
-      "startDate"   : "07/01/2012",
-      "endDate"     : "07/01/2012",
-      "description" : "Canada Day",
-      "tags" : ["Party"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://helloimbenny.com"
-      }
-    },
-    {
-      "startDate"   : "12/23/2012",
-      "endDate"     : "1/06/2013",
-      "description" : "Holiday Break",
-      "tags" : ["important"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://party.com"
-      }
-    },
-        {
-      "startDate"   : "12/31/2012",
-      "endDate"     : "12/31/2012",
-      "description" : "New Year's Eve",
-      "tags" : ["Holiday", "party"],
-      "link" :
-      {
-        "name"  : "Learn More",
-        "url"   : "http://party.com"
-      }
-    }
-  ]
-}
+[
+   {
+      "description":"Spanking new date",
+      "start_date":"2012-01-25",
+      "end_date":"2012-01-25",
+      "link":{
+         "name":"www.ucalgary.ca",
+         "url":"www.ucalgary.ca"
+      },
+      "tags":[
+         {
+            "name":"New Tag"
+         }
+      ]
+   },
+   {
+      "description":"Another Date",
+      "start_date":"2012-01-17",
+      "end_date":"2012-01-24",
+      "link":{
+         "name":"www.ucalgary.ca",
+         "url":"www.ucalgary.ca"
+      },
+      "tags":[
+         {
+            "name":"New Tag"
+         }
+      ]
+   },
+   {
+      "description":"Test",
+      "start_date":"2012-01-04",
+      "end_date":"2012-01-04",
+      "link":{
+         "name":"www.ucalgary.ca",
+         "url":"www.ucalgary.ca"
+      },
+      "tags":[
+
+      ]
+   },
+   {
+      "description":"Batman is alive",
+      "start_date":"2012-01-17",
+      "end_date":"2012-01-17",
+      "link":{
+         "name":"www.ucalgary.ca",
+         "url":"www.ucalgary.ca"
+      },
+      "tags":[
+
+      ]
+   },
+   {
+      "description":"Ghost Busters",
+      "start_date":"2012-01-11",
+      "end_date":"2012-01-11",
+      "link":{
+         "name":"www.ucalgary.ca",
+         "url":"www.ucalgary.ca"
+      },
+      "tags":[
+
+      ]
+   }
+]
