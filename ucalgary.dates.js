@@ -14,7 +14,7 @@
 
   $.dates = {
     defaults : {
-      "jsonURL"  : "dates.json",
+      "jsonURL"  : "http://136.159.202.14:3000/dates.json?callback=?",
       "tags"     : [],
       "datesCap" : 7,
       "ulClass"  : "dates",
@@ -33,8 +33,8 @@
 
   $.fn.dates = function(config){
       $.dates.config = $.extend({}, $.dates.defaults, config);
-      init(this);
-      parseDates();
+      init();
+      parseDates(this);
       return this.each(function(){
         // console.log($.dates);
       });
@@ -73,17 +73,18 @@
   };
 
   var formatDate = function (rawDate) {
+    rawDate.setDate(rawDate.getDate() + 1) // Parsing one day less for some reason
     return  ($.dates.days[rawDate.getDay()] + ", " + $.dates.months[rawDate.getMonth()] + " " + rawDate.getDate());
   }
 
-  var init = function(el) {
+  var init = function() {
     $.dates.yesterday = new Date();
     $.dates.yesterday.setDate($.dates.yesterday.getDate() - 1)
     $.dates.config.tags = cleanTags($.dates.config.tags);
   };
 
   // parse feed, validate dates, return html string of 
-  var parseDates = function() {
+  var parseDates = function(el) {
     $.getJSON($.dates.config.jsonURL, function(data) {
       var ul = $("<ul>").addClass($.dates.config.ulClass);
       
@@ -103,7 +104,7 @@
           }
         }
       });
-      $("#important-dates").append(ul);
+      $(el).append(ul);
     });
   };
 
