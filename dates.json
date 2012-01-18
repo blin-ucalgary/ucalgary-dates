@@ -1,66 +1,131 @@
 [
-   {
-      "description":"Spanking new date",
-      "start_date":"2012-01-25",
-      "end_date":"2012-01-25",
-      "link":{
-         "name":"www.ucalgary.ca",
-         "url":"www.ucalgary.ca"
-      },
-      "tags":[
-         {
-            "name":"res"
-         }
-      ]
-   },
-   {
-      "description":"Another Date",
-      "start_date":"2012-01-17",
-      "end_date":"2012-01-24",
-      "link":{
-         "name":"www.ucalgary.ca",
-         "url":"www.ucalgary.ca"
-      },
-      "tags":[
-         {
-            "name":"res"
-         }
-      ]
-   },
-   {
-      "description":"Test",
-      "start_date":"2012-01-04",
-      "end_date":"2012-01-04",
-      "link":{
-         "name":"www.ucalgary.ca",
-         "url":"www.ucalgary.ca"
-      },
-      "tags":[
-
-      ]
-   },
-   {
-      "description":"Batman is alive",
-      "start_date":"2012-01-17",
-      "end_date":"2012-01-17",
-      "link":{
-         "name":"www.ucalgary.ca",
-         "url":"www.ucalgary.ca"
-      },
-      "tags":[
-
-      ]
-   },
-   {
-      "description":"Ghost Busters",
-      "start_date":"2012-01-11",
-      "end_date":"2012-01-11",
-      "link":{
-         "name":"www.ucalgary.ca",
-         "url":"www.ucalgary.ca"
-      },
-      "tags":[
-
-      ]
-   }
+    {
+        "description": "New Year Day",
+        "start_date": "2012-01-01",
+        "end_date": "2012-01-01",
+        "link": {
+            "name": "ucalgary.ca",
+            "url": "ucalgary.ca"
+        },
+        "tags": [
+            {
+                "name": "holiday"
+            }
+        ]
+    },
+    {
+        "description": "Last day to drop Winter Term half courses. No fee refunds for Winter Term half courses after this date.",
+        "start_date": "2012-01-20",
+        "end_date": "2012-01-20",
+        "link": {
+            "name": "ucalgary.ca/registrar",
+            "url": "ucalgary.ca/registrar"
+        },
+        "tags": [
+            {
+                "name": "current"
+            }
+        ]
+    },
+    {
+        "description": "Last day to add or swap Winter Term half courses. Last day to change registration from audit to credit or credit to audit.",
+        "start_date": "2012-01-23",
+        "end_date": "2012-01-23",
+        "link": {
+            "name": "ucalgary.ca/registrar",
+            "url": "ucalgary.ca/registrar"
+        },
+        "tags": [
+            {
+                "name": "current"
+            }
+        ]
+    },
+    {
+        "description": "Fee payment deadline for Winter Term fees. Spring and Summer term Schedule of Classes will be available mid-January.",
+        "start_date": "2012-01-27",
+        "end_date": "2012-01-27",
+        "link": {
+            "name": "ucalgary.ca/registrar",
+            "url": "ucalgary.ca/registrar"
+        },
+        "tags": [
+            {
+                "name": "current"
+            }
+        ]
+    },
+    {
+        "description": "Last day to submit Application for Degree for all degrees and diplomas to be conferred at May and Spring (June) Convocations (see Graduation in Academic Regulations section of this calendar).",
+        "start_date": "2012-02-01",
+        "end_date": "2012-02-01",
+        "link": {
+            "name": "ucalgary.ca/registrar",
+            "url": "ucalgary.ca/registrar"
+        },
+        "tags": [
+            {
+                "name": "current"
+            }
+        ]
+    },
+    {
+        "description": "Easter Sunday",
+        "start_date": "2012-04-08",
+        "end_date": "2012-04-08",
+        "link": {
+            "name": "easter.com",
+            "url": "easter.com"
+        },
+        "tags": [
+            {
+                "name": "holiday"
+            }
+        ]
+    },
+    {
+        "description": "Winter Exams",
+        "start_date": "2012-04-10",
+        "end_date": "2012-04-26",
+        "link": {
+            "name": "exams",
+            "url": "ucalgary.ca/registrar"
+        },
+        "tags": [
+            {
+                "name": "exams"
+            },
+            {
+                "name": "current"
+            }
+        ]
+    },
+    {
+        "description": "Earth Day",
+        "start_date": "2012-04-22",
+        "end_date": "2012-04-22",
+        "link": {
+            "name": "earth.org",
+            "url": "earth.org"
+        },
+        "tags": [
+            {
+                "name": "holiday"
+            }
+        ]
+    },
+    {
+        "description": "Canada Day",
+        "start_date": "2012-07-01",
+        "end_date": "2012-07-01",
+        "link": {
+            "name": "ucalgary.ca",
+            "url": "ucalgary.ca"
+        },
+        "tags": [
+            {
+                "name": "holiday"
+            }
+        ]
+    }
 ]
